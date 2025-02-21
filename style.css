@@ -1,0 +1,300 @@
+*{
+    box-sizing: border-box;
+}
+
+html, body{
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Arial';
+    background: black;
+}
+
+body.invert {
+    filter: invert(1);
+}
+
+
+/* title */
+.emblem{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 25vh;
+    margin: 0 auto;
+    width: 50vh;
+    height: 50vh;
+    border-radius: 50%;
+    font-weight: light;
+    color: white;
+    animation: spinZ 20s linear infinite;
+    text-align: center;
+    z-index: 1;
+}
+
+span{
+    position: absolute;
+    display: inline-block;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    text-transform: uppercase;
+    font-size: 5vh;
+    transition: all .5s cubic-bezier(0,0,0,1);
+}
+
+@media screen and (max-width: 450px) {
+    .emblem{
+        width: 30vw;
+        height: 30vh;
+    }
+    span{
+        font-size: 3vh;
+    }
+}
+
+
+/* layered four circles */
+@keyframes spinZ{
+    0%{
+        transform: rotateZ(360deg);
+    }
+    100%{
+        transform: rotateZ(0deg);
+    }
+}
+
+.start{
+    width: 100px;
+    height: 100px;
+    background-color: transparent;
+    display: inline-block;
+    border-radius: 100%;
+    border: 3px solid white;
+    animation: spinZ 3s infinite linear;
+    position: absolute;
+    left: 5vw;
+    top: 15vh;
+    z-index: 1;
+}
+
+.start:hover {
+    scale: 1.2;
+}
+
+.inner-circle-one {
+    width: 80px;
+    height: 80px;
+    color: transparent;
+    border-radius: 100%;
+    border: 2px solid white;
+}
+
+.inner-circle-two {
+    width: 60px;
+    height: 60px;
+    color: transparent;
+    border-radius: 100%;
+    border:1.5px solid white;
+}
+
+.inner-circle-three {
+    width: 40px;
+    height: 40px;
+    color: transparent;
+    border-radius: 100%;
+    border: 1px solid white;
+}
+
+
+/* 
+https://codepen.io/NielsOeltjen/pen/AWQzzPlayered 
+three squares 
+*/
+.squares,
+.squares:before,
+.squares:after {
+    width: 4em;
+    height: 4em;
+    content: "";
+    background-color: transparent;
+    border: 3px solid white;
+}
+
+.squares{
+    animation: rotate 8s infinite linear;
+    position: absolute;
+    right: 10vw;
+    top: 5vh;
+}
+
+.squares:before,
+.squares:after {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.squares:before {
+    transform: rotate(30deg);
+    animation: rotate 6s infinite linear;
+}
+
+.squares:after {
+    transform:rotate(-30deg);
+    animation: rotate 10s infinite linear;
+}
+
+@keyframes rotate {
+    0% {
+        transform:rotate(0deg);
+    }
+    100% {
+        transform:rotate(360deg);
+    }
+}
+
+.squares:hover {
+    scale: 1.2;
+}
+
+
+/* 
+https://codepen.io/code3233/pen/apBarX 
+layered organic shapes 
+*/
+.organic div {
+    width: 20px;
+    padding: 15px;
+    border-top: 6px solid white;
+    border-bottom: 6px solid whitesmoke;
+    border-radius: 50%;
+    display: inline-block;
+    animation: spin 10s infinite linear;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform:rotate(-360deg);
+    }
+}
+
+.container {
+    width: 20px;
+    margin: auto;
+    position: absolute;
+    left: 35vw;
+    bottom: 3vh;
+}
+
+.container:hover{
+    scale: 1.5;
+}
+
+.switch {
+
+}
+
+
+/* side menu */
+.side-menu {
+    background-color: transparent;
+    height: 100%;
+    width: 0;
+    z-index: 2;
+    position: absolute;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    transition: height 1s ease-in-out;
+}
+
+.side-menu p {
+    width: 0;
+    color: transparent;
+}
+
+.show {
+    background-color: rgba(219, 219, 219, 1);
+    transition: width 1s ease-in-out;
+    width: 35vw;
+
+    p {
+        color: black;
+        width: 30vw;
+        position: absolute;
+        bottom: 5vh;
+    }
+}
+
+.arrow {
+    border: solid black;
+    border-width: 0 4px 4px 0;
+    display: inline-block;
+    padding: 5px;
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: 5vh;
+    left: 3vw;
+}
+
+.arrow:hover {
+    scale: 1.2;
+}
+
+/* 
+CODE GRAVEYARD 
+*/
+/* @keyframes rainbow-border {
+    0% { 
+        border-image: linear-gradient(70deg, rgba(255, 0, 0, 0.5), rgba(255, 166, 0, 0.5), rgba(255, 255, 0, 0.5), rgba(0, 128, 0, 0.5), rgba(0, 0, 255, 0.5), rgba(76, 0, 130, 0.5), rgba(238, 130, 238, 0.5)) 1; 
+    }
+    14% { 
+        border-image: linear-gradient(70deg, rgba(255, 0, 0, 0.5), rgba(255, 166, 0, 0.5), rgba(255, 255, 0, 0.5), rgba(0, 128, 0, 0.5), rgba(0, 0, 255, 0.5), rgba(76, 0, 130, 0.5), rgba(238, 130, 238, 0.5)) 1; 
+    }
+    28% { 
+        border-image: linear-gradient(70deg, rgba(255, 0, 0, 0.5), rgba(255, 166, 0, 0.5), rgba(255, 255, 0, 0.5), rgba(0, 128, 0, 0.5), rgba(0, 0, 255, 0.5), rgba(76, 0, 130, 0.5), rgba(238, 130, 238, 0.5)) 1; 
+    }
+    42% { 
+        border-image: linear-gradient(70deg, rgba(255, 0, 0, 0.5), rgba(255, 166, 0, 0.5), rgba(255, 255, 0, 0.5), rgba(0, 128, 0, 0.5), rgba(0, 0, 255, 0.5), rgba(76, 0, 130, 0.5), rgba(238, 130, 238, 0.5)) 1; 
+    }
+    56% { 
+        border-image: linear-gradient(70deg, rgba(255, 0, 0, 0.5), rgba(255, 166, 0, 0.5), rgba(255, 255, 0, 0.5), rgba(0, 128, 0, 0.5), rgba(0, 0, 255, 0.5), rgba(76, 0, 130, 0.5), rgba(238, 130, 238, 0.5)) 1; 
+    }
+    70% { 
+        border-image: linear-gradient(70deg, rgba(255, 0, 0, 0.5), rgba(255, 166, 0, 0.5), rgba(255, 255, 0, 0.5), rgba(0, 128, 0, 0.5), rgba(0, 0, 255, 0.5), rgba(76, 0, 130, 0.5), rgba(238, 130, 238, 0.5)) 1; 
+    }
+    84% { 
+        border-image: linear-gradient(70deg, rgba(255, 0, 0, 0.5), rgba(255, 166, 0, 0.5), rgba(255, 255, 0, 0.5), rgba(0, 128, 0, 0.5), rgba(0, 0, 255, 0.5), rgba(76, 0, 130, 0.5), rgba(238, 130, 238, 0.5)) 1; 
+    }
+    100% { 
+        border-image: linear-gradient(70deg, rgba(255, 0, 0, 0.5), rgba(255, 166, 0, 0.5), rgba(255, 255, 0, 0.5), rgba(0, 128, 0, 0.5), rgba(0, 0, 255, 0.5), rgba(76, 0, 130, 0.5), rgba(238, 130, 238, 0.5)) 1; 
+    }
+} */
+
+/* .trapezoid {
+    width: 10px; 
+    height: 50px; 
+    background-color: white; 
+    clip-path: polygon(30% 0%, 70% 0%, 100% 100%, 0% 100%);
+    border-radius: 50px;
+    position: absolute;
+    right: 20vw;
+    bottom: 25vh;
+} */
+
+/* html, body{
+    ...
+    border: 5px solid transparent;
+    border-image: linear-gradient(70deg, rgba(255, 0, 0, 0.5), rgba(255, 166, 0, 0.5), rgba(255, 255, 0, 0.5), rgba(0, 128, 0, 0.5), rgba(0, 0, 255, 0.5), rgba(76, 0, 130, 0.5), rgba(238, 130, 238, 0.5)) 1; 
+    border-image-slice: 1;
+    animation: rainbow-border 20s linear infinite;
+    ...
+    } */
